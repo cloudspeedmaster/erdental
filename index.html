@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="sq">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="pageTitle">Klinika Dentare ER Dental</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        html { scroll-behavior: smooth; }
+        body { background-color: #f8fafc; overflow-x: hidden; }
+        
+        /* Before & After Slider CSS */
+        .before-after-container { position: relative; width: 100%; overflow: hidden; }
+        .before-image-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+        .before-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .after-image-wrapper { position: absolute; top: 0; left: 0; width: 100%; height: 100%; clip-path: inset(0 0 0 50%); }
+        .after-image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+        .before-after-slider { position: absolute; top: 0; bottom: 0; left: 50%; width: 4px; background: #3b82f6; cursor: ew-resize; z-index: 10; transform: translateX(-50%); }
+        .before-after-slider::before { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 40px; height: 40px; background: #3b82f6; border-radius: 50%; border: 2px solid white; box-shadow: 0 0 10px rgba(0,0,0,0.3); }
+        .before-after-slider::after { content: '⟷'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); color: white; font-size: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white shadow-md z-40 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-2 flex justify-between items-center">
+            <div class="flex items-center">
+                <a href="#hero">
+                    <img src="https://i.imgur.com/wb2BGmP.png" alt="ER Dental Logo" class="h-16 w-auto">
+                </a>
+            </div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#hero" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navHome">Kryefaqja</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navAbout">Rreth Nesh</a>
+                <a href="#services" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navServices">Shërbimet</a>
+                <a href="#before-after" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navBeforeAfter">Para dhe Pas</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navTestimonials">Dëshmitë</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navContact">Kontakti</a>
+            </div>
+            <div class="md:hidden"><button id="menu-toggle" class="focus:outline-none"><svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg></button></div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white shadow-md">
+            <div class="container mx-auto px-4 py-3 flex flex-col space-y-3">
+                <a href="#hero" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navHome">Kryefaqja</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navAbout">Rreth Nesh</a>
+                <a href="#services" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navServices">Shërbimet</a>
+                <a href="#before-after" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navBeforeAfter">Para dhe Pas</a>
+                <a href="#testimonials" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navTestimonials">Dëshmitë</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-600 transition-colors" data-translate="navContact">Kontakti</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center bg-gradient-to-br from-blue-50 to-blue-100 overflow-hidden pt-24">
+        <div class="container mx-auto px-4 py-32 md:py-0 z-20">
+            <div class="flex flex-col md:flex-row items-center gap-8">
+                <div class="md:w-1/2 mb-10 md:mb-0">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 mb-4" data-translate="heroTitle">ER Dental</h1>
+                    <p class="text-2xl text-blue-600 mb-6 font-semibold" data-translate="heroMotto">Buzëqeshjet e Bukura Fillojnë Me Ne</p>
+                    <p class="text-lg text-gray-600 mb-8" data-translate="heroDescription">Me një përkushtim ndaj përsosmërisë dhe duke përdorur teknologjinë më të fundit, ne jemi destinacioni juaj për një buzëqeshje të shëndetshme dhe rrezatuese.</p>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <a href="#contact" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors duration-300 text-center" data-translate="heroBtnAppointment">Cakto një Takim</a>
+                        <a href="#services" class="bg-white hover:bg-gray-100 text-blue-600 font-medium py-3 px-6 rounded-lg border border-blue-600 transition-colors duration-300 text-center" data-translate="heroBtnServices">Shërbimet Tona</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 relative"><img src="https://i.imgur.com/ZDOFJn5.png" alt="Buzëqeshje e bukur e pacientit" class="rounded-lg shadow-2xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us / Team Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-translate="aboutTitle">Njoftohuni me Specialisten Tonë</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-3xl mx-auto" data-translate="aboutDescription">Pasioni dhe profesionalizmi ynë janë themeli i çdo buzëqeshjeje që krijojmë.</p>
+            </div>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-12">
+                <div class="md:w-1/3 flex justify-center">
+                    <img src="https://i.imgur.com/aiWpHrc.png" alt="Dr. Arbnora Demiri Osmani" class="rounded-lg shadow-2xl w-full max-w-sm transition-transform hover:scale-105 duration-300">
+                </div>
+                <div class="md:w-2/3 md:pl-8 text-center md:text-left">
+                    <h3 class="text-3xl font-bold text-gray-800" data-translate="doctorName">Spec. Dr. Arbnora Demiri Osmani</h3>
+                    <p class="text-xl text-blue-600 font-semibold mb-4" data-translate="doctorSpecialty">Specialiste e Ortodoncisë</p>
+                    <p class="text-gray-600 mb-4" data-translate="aboutText1">Me një përvojë të pasur dhe një pasion për ortodoncinë, Dr. Arbnora Demiri Osmani është e përkushtuar për të krijuar buzëqeshje të bukura dhe funksionale. Ajo përdor teknikat më moderne për të ofruar trajtime të personalizuara dhe efektive për pacientët e të gjitha moshave.</p>
+                    <p class="text-gray-600" data-translate="aboutText2">Nga aparatet tradicionale tek Invisalign, Dr. Osmani i qaset çdo rasti me një planifikim të kujdesshëm dhe vëmendje ndaj detajeve, duke siguruar që çdo pacient të arrijë buzëqeshjen e ëndrrave në një mjedis komod dhe mbështetës.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-translate="servicesTitle">Shërbimet Tona</h2>
+                <div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-translate="servicesDescription">Ne ofrojmë një gamë të gjerë shërbimesh dentare për të përmbushur çdo nevojë tuajën estetike dhe funksionale.</p>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="text-center bg-white rounded-lg shadow-lg p-8 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl flex flex-col items-center"><div class="w-20 h-20 mb-4 flex items-center justify-center"><img src="https://i.imgur.com/ID6L1zC.png" alt="Implante Dentare Icon" class="h-full object-contain"></div><h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="service1Title">Implante Dentare</h3><p class="text-gray-600 text-sm" data-translate="service1Desc">Zëvendësoni dhëmbët që mungojnë me një zgjidhje të qëndrueshme dhe me pamje natyrale.</p></div>
+                <div class="text-center bg-white rounded-lg shadow-lg p-8 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl flex flex-col items-center"><div class="w-20 h-20 mb-4 flex items-center justify-center"><img src="https://i.imgur.com/FlYaVnl.png" alt="Kurora Dentare Icon" class="h-full object-contain"></div><h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="service2Title">Kurora Dentare</h3><p class="text-gray-600 text-sm" data-translate="service2Desc">Restauroni formën, forcën dhe pamjen e dhëmbëve të dëmtuar me kurora zirkoni ose E-Max.</p></div>
+                <div class="text-center bg-white rounded-lg shadow-lg p-8 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl flex flex-col items-center"><div class="w-20 h-20 mb-4 flex items-center justify-center"><img src="https://i.imgur.com/gp58vb6.png" alt="Veneers E-Max Icon" class="h-full object-contain"></div><h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="service3Title">Veneers E-Max</h3><p class="text-gray-600 text-sm" data-translate="service3Desc">Arrini një buzëqeshje perfekte me faseta qeramike me estetikë dhe qëndrueshmëri superiore.</p></div>
+                <div class="text-center bg-white rounded-lg shadow-lg p-8 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl flex flex-col items-center"><div class="w-20 h-20 mb-4 flex items-center justify-center"><img src="https://i.imgur.com/FlYaVnl.png" alt="Proteza Fikse Icon" class="h-full object-contain"></div><h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="service4Title">Proteza Fikse</h3><p class="text-gray-600 text-sm" data-translate="service4Desc">Zgjidhje të rehatshme dhe stabile për zëvendësimin e disa dhëmbëve njëherësh.</p></div>
+                <div class="text-center bg-white rounded-lg shadow-lg p-8 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl flex flex-col items-center"><div class="w-20 h-20 mb-4 flex items-center justify-center"><img src="https://i.imgur.com/5SABPUF.png" alt="Invisalign Icon" class="h-full object-contain"></div><h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="service5Title">Invisalign</h3><p class="text-gray-600 text-sm" data-translate="service5Desc">Drejtoni dhëmbët tuaj me alignerë transparentë, të lëvizshëm dhe komodë.</p></div>
+                <div class="text-center bg-white rounded-lg shadow-lg p-8 transition-all duration-300 hover:transform hover:-translate-y-2 hover:shadow-2xl flex flex-col items-center"><div class="w-20 h-20 mb-4 flex items-center justify-center"><img src="https://i.imgur.com/gp58vb6.png" alt="Zbardhimi i Dhëmbëve Icon" class="h-full object-contain"></div><h3 class="text-xl font-bold text-gray-800 mb-2" data-translate="service6Title">Zbardhimi i Dhëmbëve</h3><p class="text-gray-600 text-sm" data-translate="service6Desc">Merrni një buzëqeshje më të bardhë dhe më të ndritshme me trajtimet tona profesionale.</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Before and After Section -->
+    <section id="before-after" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-translate="beforeAfterTitle">Para dhe Pas</h2><div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div><p class="text-gray-600 max-w-2xl mx-auto" data-translate="beforeAfterDescription">Shikoni transformimet e mahnitshme të buzëqeshjeve që kemi realizuar për pacientët tanë.</p></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="before-after-container h-96 rounded-lg overflow-hidden shadow-lg bg-gray-200"><div class="before-image-wrapper"><img src="https://i.imgur.com/3oQT78g.jpeg" alt="Before teeth whitening"></div><div class="after-image-wrapper"><img src="https://i.imgur.com/rYPJ07n.jpeg" alt="After teeth whitening"></div><div class="before-after-slider" id="slider1"></div></div>
+                <div class="before-after-container h-96 rounded-lg overflow-hidden shadow-lg bg-gray-200"><div class="before-image-wrapper"><img src="https://i.imgur.com/0Iv1O2w.jpeg" alt="Before dental implants"></div><div class="after-image-wrapper"><img src="https://i.imgur.com/yWYgDIq.jpeg" alt="After dental implants"></div><div class="before-after-slider" id="slider2"></div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-blue-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-translate="testimonialsTitle">Dëshmitë e Pacientëve</h2><div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div><p class="text-gray-600 max-w-2xl mx-auto" data-translate="testimonialsDescription">Dëgjoni çfarë thonë pacientët tanë për përvojën e tyre në klinikën tonë.</p></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-8 transition-transform hover:scale-105 duration-300"><p class="text-gray-600 italic mb-4" data-translate="testimonial1Quote">"Dr. Arbnora dhe stafi i ER Dental janë fantastikë. Përvoja ime ishte e jashtëzakonshme dhe rezultati final i kaloi pritshmëritë e mia!"</p><p class="font-bold text-right text-gray-800">- Arta Krasniqi</p></div>
+                <div class="bg-white rounded-lg shadow-lg p-8 transition-transform hover:scale-105 duration-300"><p class="text-gray-600 italic mb-4" data-translate="testimonial2Quote">"Profesionalizëm i nivelit më të lartë. Çdo detaj u shpjegua qartë dhe trajtimi i implanteve ishte pa asnjë problem. Rekomandoj fuqishëm ER Dental."</p><p class="font-bold text-right text-gray-800">- Besnik Hoxha</p></div>
+                <div class="bg-white rounded-lg shadow-lg p-8 transition-transform hover:scale-105 duration-300"><p class="text-gray-600 italic mb-4" data-translate="testimonial3Quote">"Nga momenti i parë e dija që isha në duar të sigurta. Atmosfera miqësore dhe puna e shkëlqyer më bënë të ndihem shumë rehat. Faleminderit!"</p><p class="font-bold text-right text-gray-800">- Vjosa Berisha</p></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16"><h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4" data-translate="contactTitle">Na Kontaktoni</h2><div class="w-24 h-1 bg-blue-600 mx-auto mb-6"></div><p class="text-gray-600 max-w-2xl mx-auto" data-translate="contactDescription">Jemi këtu për t'iu përgjigjur pyetjeve tuaja dhe për t'ju ndihmuar të caktoni një takim.</p></div>
+            <div class="flex flex-col md:flex-row-reverse gap-10">
+                <div class="md:w-1/2">
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="bg-blue-50 rounded-lg shadow-lg p-8">
+                        <h3 class="text-2xl font-bold text-gray-800 mb-6" data-translate="formTitle">Na Dërgoni një Mesazh</h3>
+                        <div class="mb-6"><label for="name" class="block text-gray-700 font-medium mb-2" data-translate="formName">Emri i Plotë</label><input type="text" name="name" id="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" data-translate-placeholder="formNamePlaceholder" placeholder="Emri juaj i plotë"></div>
+                        <div class="mb-6"><label for="email" class="block text-gray-700 font-medium mb-2" data-translate="formEmail">Email</label><input type="email" name="email" id="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" data-translate-placeholder="formEmailPlaceholder" placeholder="adresa@juaj.com"></div>
+                        <div class="mb-6"><label for="phone" class="block text-gray-700 font-medium mb-2" data-translate="formPhone">Numri i Telefonit</label><input type="tel" name="phone" id="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" data-translate-placeholder="formPhonePlaceholder" placeholder="+383 44 672 332"></div>
+                        <div class="mb-6"><label for="message" class="block text-gray-700 font-medium mb-2" data-translate="formMessage">Mesazhi</label><textarea name="message" id="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" data-translate-placeholder="formMessagePlaceholder" placeholder="Shkruani mesazhin tuaj këtu..."></textarea></div>
+                        <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-lg transition-colors" data-translate="formButton">Dërgo Mesazhin</button>
+                    </form>
+                </div>
+                <div class="md:w-1/2">
+                     <div class="bg-white rounded-lg p-8 h-full shadow-lg"><h3 class="text-2xl font-bold text-gray-800 mb-6" data-translate="contactInfoTitle">Informacioni i Kontaktit</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-start"><div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0"><svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2C8.13,2,5,5.13,5,9c0,5.25,7,13,7,13s7-7.75,7-13C19,5.13,15.87,2,12,2z M12,11.5c-1.38,0-2.5-1.12-2.5-2.5 s1.12-2.5,2.5-2.5s2.5,1.12,2.5,2.5S13.38,11.5,12,11.5z"></path></svg></div><div><h4 class="font-bold text-gray-800 mb-1" data-translate="addressTitle">Adresa</h4><p class="text-gray-600" data-translate="addressText">Rruga Ahmet Kaçiku, (objekti ngjitur me restorant ORCHIDE), Ferizaj, Kosovë</p></div></div>
+                            <div class="flex items-start"><div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0"><svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M20,15.5C18.8,15.5,17.5,15.3,16.4,14.9C16.1,14.8,15.7,14.9,15.5,15.1L13.2,17.4C10.4,15.9,8,13.6,6.6,10.8L8.9,8.5C9.1,8.3,9.2,7.9,9.1,7.6C8.7,6.5,8.5,5.2,8.5,4C8.5,3.5,8,3,7.5,3H4C3.5,3,3,3.5,3,4C3,13.4,10.6,21,20,21C20.5,21,21,20.5,21,20V16.5C21,16,20.5,15.5,20,15.5Z"></path></svg></div><div><h4 class="font-bold text-gray-800 mb-1" data-translate="phoneTitle">Telefon</h4><p class="text-gray-600">+383 44 672 332</p></div></div>
+                            <div class="flex items-start"><div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0"><svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24" ><path d="M22 6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6zm-2 0l-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"></path></svg></div><div><h4 class="font-bold text-gray-800 mb-1" data-translate="emailTitle">Email</h4><p class="text-gray-600">erdental17@gmail.com</p></div></div>
+                            <div class="flex items-start"><div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4 flex-shrink-0"><svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 24 24"><path d="M12,2C6.48,2,2,6.48,2,12s4.48,10,10,10s10-4.48,10-10S17.52,2,12,2z M12,20c-4.41,0-8-3.59-8-8s3.59-8,8-8s8,3.59,8,8 S16.41,20,12,20z"></path><path d="M12.5,7H11v6l5.25,3.15l0.75-1.23l-4.5-2.67V7z"></path></svg></div><div><h4 class="font-bold text-gray-800 mb-1" data-translate="hoursTitle">Orari i Punës</h4><p class="text-gray-600" data-translate="hoursText">E Hënë - E Shtunë: 10:00 - 19:00<br>E Diel: Mbyllur</p></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section id="map" class="py-10 bg-blue-50"><div class="container mx-auto px-4"><div class="bg-white rounded-lg shadow-lg overflow-hidden"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2946.9934279075037!2d21.15015477663524!3d42.37255053350325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13547f35338eaa51%3A0x7d4ad8735860159!2sEr%20Dental!5e0!3m2!1sen!2s!4v1717265147313!5m2!1sen!2s" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div></section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-10"><div class="container mx-auto px-4 text-center"><p data-translate="footerRights">© 2024 ER Dental. Të gjitha të drejtat e rezervuara.</p></div></footer>
+
+    <!-- Floating Toggles -->
+    <div id="language-switcher" class="fixed bottom-5 left-5 z-50"><div id="language-options" class="hidden absolute bottom-full mb-2"><button id="lang-option-btn" class="flex items-center space-x-2 bg-white text-gray-800 font-bold py-2 px-4 rounded-lg shadow-lg transition-transform hover:scale-105"></button></div><button id="language-toggle-btn" class="flex items-center space-x-2 bg-white text-gray-800 font-bold py-2 px-4 rounded-lg shadow-lg transition-transform hover:scale-105"></button></div>
+    <div class="fixed bottom-5 right-5 z-50 flex flex-col-reverse items-center space-y-2 space-y-reverse">
+        <div id="social-options" class="hidden flex flex-col items-center space-y-2 mb-2"><a href="https://wa.me/38344672332" target="_blank" class="bg-green-500 text-white rounded-full p-3 shadow-lg hover:bg-green-600 transition-transform hover:scale-110"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M16.75 13.96c.25.13.42.2.46.28a.48.48 0 01.04.3c-.12.48-.68.9-1.12.96-.28.04-.48.03-.68-.02s-.58-.2-1.03-.38c-1.1-.48-2.2-1.34-2.94-2.4a5.33 5.33 0 01-1-1.3c-.2-.35-.38-.7-.38-1.03a1.4 1.4 0 01.48-1.02c.16-.16.35-.2.48-.2a.6.6 0 01.43.28l.2.28.6 1.35.3 1.3c.02.04.04.1.04.16a.4.4 0 010 .2c-.02.08-.04.13-.08.18-.08.1-.18.2-.3.3a.62.62 0 01-.22.1c-.08.04-.15.1-.15.2a1.35 1.35 0 00.5 1.12c.5.53 1.15.93 1.83 1.1a1.2 1.2 0 00.35.03c.1-.03.25-.13.3-.25.04-.1.04-.2.04-.25l.02-.13c0-.02 0-.04-.02-.06a.7.7 0 00-.08-.13.3.3 0 01-.06-.2.43.43 0 01.13-.3c.1-.08.2-.13.25-.13h.1a.4.4 0 01.28.13c.1.08.18.18.25.28.1.13.18.25.25.35.08.13.15.23.18.3.02.03.04.06.04.08a.27.27 0 01.02.13c0 .06-.02.1-.04.16s-.04.1-.06.13a.96.96 0 01-.15.22zM12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8z"/></svg></a><a href="https://www.instagram.com/erdental17/" target="_blank" class="bg-gradient-to-br from-purple-500 via-pink-500 to-yellow-500 text-white rounded-full p-3 shadow-lg transition-transform hover:scale-110"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07s-3.584-.012-4.85-.07c-3.252-.148-4.771-1.691-4.919-4.919-.058-1.265-.069-1.645-.069-4.85s.011-3.584.069-4.85c.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.85-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.618 6.98-6.98.059-1.281.073-1.689.073-4.948s-.014-3.667-.072-4.947c-.2-4.358-2.618-6.78-6.98-6.98-1.281-.059-1.689-.073-4.948-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4s1.791-4 4-4 4 1.79 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44 1.441-.645 1.441-1.44c0-.795-.645-1.44-1.441-1.44z"/></svg></a><a href="https://www.facebook.com/ErDentalFer" target="_blank" class="bg-blue-800 text-white rounded-full p-3 shadow-lg hover:bg-blue-900 transition-transform hover:scale-110"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg></a></div>
+        <button id="social-toggle" class="bg-blue-600 text-white rounded-full p-4 shadow-lg hover:bg-blue-700 transition-transform hover:scale-110"><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12s-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6.002l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.368a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"></path></svg></button>
+    </div>
+
+    <script>
+        const translations = {
+            sq: { pageTitle: "Klinika Dentare ER Dental", navHome: "Kryefaqja", navAbout: "Rreth Nesh", navServices: "Shërbimet", navBeforeAfter: "Para dhe Pas", navTestimonials: "Dëshmitë", navContact: "Kontakti", heroTitle: "ER Dental", heroMotto: "Buzëqeshjet e Bukura Fillojnë Me Ne", heroDescription: "Me një përkushtim ndaj përsosmërisë dhe duke përdorur teknologjinë më të fundit, ne jemi destinacioni juaj për një buzëqeshje të shëndetshme dhe rrezatuese.", heroBtnAppointment: "Cakto një Takim", heroBtnServices: "Shërbimet Tona", aboutTitle: "Njoftohuni me Specialisten Tonë", aboutDescription: "Pasioni dhe profesionalizmi ynë janë themeli i çdo buzëqeshjeje që krijojmë.", doctorName: "Spec. Dr. Arbnora Demiri Osmani", doctorSpecialty: "Specialiste e Ortodoncisë", aboutText1: "Me një përvojë të pasur dhe një pasion për ortodoncinë, Dr. Arbnora Demiri Osmani është e përkushtuar për të krijuar buzëqeshje të bukura dhe funksionale. Ajo përdor teknikat më moderne për të ofruar trajtime të personalizuara dhe efektive për pacientët e të gjitha moshave.", aboutText2: "Nga aparatet tradicionale tek Invisalign, Dr. Osmani i qaset çdo rasti me një planifikim të kujdesshëm dhe vëmendje ndaj detajeve, duke siguruar që çdo pacient të arrijë buzëqeshjen e ëndrrave në një mjedis komod dhe mbështetës.", servicesTitle: "Shërbimet Tona", servicesDescription: "Ne ofrojmë një gamë të gjerë shërbimesh dentare për të përmbushur çdo nevojë tuajën estetike dhe funksionale.", service1Title: "Implante Dentare", service1Desc: "Zëvendësoni dhëmbët që mungojnë me një zgjidhje të qëndrueshme dhe me pamje natyrale.", service2Title: "Kurora Dentare", service2Desc: "Restauroni formën, forcën dhe pamjen e dhëmbëve të dëmtuar me kurora zirkoni ose E-Max.", service3Title: "Veneers E-Max", service3Desc: "Arrini një buzëqeshje perfekte me faseta qeramike me estetikë dhe qëndrueshmëri superiore.", service4Title: "Proteza Fikse", service4Desc: "Zgjidhje të rehatshme dhe stabile për zëvendësimin e disa dhëmbëve njëherësh.", service5Title: "Invisalign", service5Desc: "Drejtoni dhëmbët tuaj me alignerë transparentë, të lëvizshëm dhe komodë.", service6Title: "Zbardhimi i Dhëmbëve", service6Desc: "Merrni një buzëqeshje më të bardhë dhe më të ndritshme me trajtimet tona profesionale.", beforeAfterTitle: "Para dhe Pas", beforeAfterDescription: "Shikoni transformimet e mahnitshme të buzëqeshjeve që kemi realizuar për pacientët tanë.", testimonialsTitle: "Dëshmitë e Pacientëve", testimonialsDescription: "Dëgjoni çfarë thonë pacientët tanë për përvojën e tyre në klinikën tonë.", testimonial1Quote: `"Dr. Arbnora dhe stafi i ER Dental janë fantastikë. Përvoja ime ishte e jashtëzakonshme dhe rezultati final i kaloi pritshmëritë e mia!"`, testimonial2Quote: `"Profesionalizëm i nivelit më të lartë. Çdo detaj u shpjegua qartë dhe trajtimi i implanteve ishte pa asnjë problem. Rekomandoj fuqishëm ER Dental."`, testimonial3Quote: `"Nga momenti i parë e dija që isha në duar të sigurta. Atmosfera miqësore dhe puna e shkëlqyer më bënë të ndihem shumë rehat. Faleminderit!"`, contactTitle: "Na Kontaktoni", contactDescription: "Jemi këtu për t'iu përgjigjur pyetjeve tuaja dhe për t'ju ndihmuar të caktoni një takim.", formTitle: "Na Dërgoni një Mesazh", formName: "Emri i Plotë", formNamePlaceholder: "Emri juaj i plotë", formEmail: "Email", formEmailPlaceholder: "adresa@juaj.com", formPhone: "Numri i Telefonit", formPhonePlaceholder: "+383 44 672 332", formMessage: "Mesazhi", formMessagePlaceholder: "Shkruani mesazhin tuaj këtu...", formButton: "Dërgo Mesazhin", contactInfoTitle: "Informacioni i Kontaktit", addressTitle: "Adresa", addressText: "Rruga Ahmet Kaçiku, (objekti ngjitur me restorant ORCHIDE), Ferizaj, Kosovë", phoneTitle: "Telefon", emailTitle: "Email", hoursTitle: "Orari i Punës", hoursText: "E Hënë - E Shtunë: 10:00 - 19:00<br>E Diel: Mbyllur", footerRights: "© 2024 ER Dental. Të gjitha të drejtat e rezervuara." },
+            en: { pageTitle: "ER Dental Clinic", navHome: "Home", navAbout: "About Us", navServices: "Services", navBeforeAfter: "Before & After", navTestimonials: "Testimonials", navContact: "Contact", heroTitle: "ER Dental", heroMotto: "Beautiful Smiles Start With Us", heroDescription: "With a commitment to excellence and using the latest technology, we are your destination for a healthy and radiant smile.", heroBtnAppointment: "Book an Appointment", heroBtnServices: "Our Services", aboutTitle: "Meet Our Specialist", aboutDescription: "Our passion and professionalism are the foundation of every smile we create.", doctorName: "Spec. Dr. Arbnora Demiri Osmani", doctorSpecialty: "Specialist in Orthodontics", aboutText1: "With extensive experience and a passion for orthodontics, Dr. Arbnora Demiri Osmani is dedicated to creating beautiful and functional smiles. She uses the most modern techniques to provide personalized and effective treatments for patients of all ages.", aboutText2: "From traditional braces to Invisalign, Dr. Osmani approaches each case with careful planning and attention to detail, ensuring that every patient achieves their dream smile in a comfortable and supportive environment.", servicesTitle: "Our Services", servicesDescription: "We offer a wide range of dental services to meet all your aesthetic and functional needs.", service1Title: "Dental Implants", service1Desc: "Replace missing teeth with a durable and natural-looking solution.", service2Title: "Dental Crowns", service2Desc: "Restore the shape, strength, and appearance of damaged teeth with Zirconia or E-Max crowns.", service3Title: "E-Max Veneers", service3Desc: "Achieve a perfect smile with ceramic veneers of superior aesthetics and durability.", service4Title: "Fixed Prosthetics", service4Desc: "Comfortable and stable solutions for replacing several teeth at once.", service5Title: "Invisalign", service5Desc: "Straighten your teeth with transparent, removable, and comfortable aligners.", service6Title: "Teeth Whitening", service6Desc: "Get a whiter and brighter smile with our professional treatments.", beforeAfterTitle: "Before and After", beforeAfterDescription: "See the amazing smile transformations we have achieved for our patients.", testimonialsTitle: "Patient Testimonials", testimonialsDescription: "Hear what our patients have to say about their experience at our clinic.", testimonial1Quote: `"Dr. Arbnora and the staff at ER Dental are fantastic. My experience was exceptional and the final result exceeded my expectations!"`, testimonial2Quote: `"Top-level professionalism. Every detail was explained clearly and the implant treatment was flawless. I highly recommend ER Dental."`, testimonial3Quote: `"From the first moment, I knew I was in safe hands. The friendly atmosphere and excellent work made me feel very comfortable. Thank you!"`, contactTitle: "Contact Us", contactDescription: "We are here to answer your questions and help you schedule an appointment.", formTitle: "Send Us a Message", formName: "Full Name", formNamePlaceholder: "Your full name", formEmail: "Email", formEmailPlaceholder: "your@email.com", formPhone: "Phone Number", formPhonePlaceholder: "+383 44 672 332", formMessage: "Message", formMessagePlaceholder: "Write your message here...", formButton: "Send Message", contactInfoTitle: "Contact Information", addressTitle: "Address", addressText: "Rruga Ahmet Kaçiku, (objekti ngjitur me restorant ORCHIDE), Ferizaj, Kosovë", phoneTitle: "Phone", emailTitle: "Email", hoursTitle: "Working Hours", hoursText: "Monday - Saturday: 10:00 AM - 7:00 PM<br>Sunday: Closed", footerRights: "© 2024 ER Dental. All rights reserved." }
+        };
+        
+        const albanianFlagSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" class="w-5 h-5 rounded-sm"><rect fill="#E41E20" height="600" width="900"/><g transform="translate(450 300) scale(1.4)"><g transform="translate(0 40)" fill="#000"><path d="M-105-25l41 12-16-39 32 32-39-16 12 41L-105-25z"/><path d="M105-25l-41 12 16-39-32 32 39-16-12 41L105-25z"/><path d="M-125-105c-5 18-21 52-25 60-4 8 13 15 13 15s-10-18-5-30c5-12 17-25 17-25z"/><path d="M125-105c5 18 21 52 25 60 4 8-13 15-13 15s10-18 5-30c-5-12-17-25-17-25z"/><g transform="scale(1 -1)"><path d="M-125-105c-5 18-21 52-25 60-4 8 13 15 13 15s-10-18-5-30c5-12 17-25 17-25z"/><path d="M125-105c5 18 21 52 25 60 4 8-13 15-13 15s10-18 5-30c-5-12-17-25-17-25z"/></g></g></g></svg>`;
+        const englishFlagSVG = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" class="w-5 h-5 rounded-sm"><path fill="#012169" d="M0 0h60v30H0z"/><path fill="#FFF" d="M0 0l60 30m0-30L0 30"/><path fill="none" stroke="#FFF" stroke-width="6" d="M0 0l60 30m0-30L0 30"/><path fill="none" stroke="#C8102E" stroke-width="2" d="M0 0l60 30m0-30L0 30"/><path fill="none" stroke="#FFF" stroke-width="10" d="M30 0v30M0 15h60"/><path fill="none" stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60"/></svg>`;
+        
+        function changeLanguage(lang) {
+            document.documentElement.lang = lang;
+            const langData = translations[lang];
+            const langToggleBtn = document.getElementById('language-toggle-btn');
+            const langOptionBtn = document.getElementById('lang-option-btn');
+
+            document.querySelectorAll('[data-translate]').forEach(el => { const key = el.dataset.translate; if (langData && langData[key]) el.innerHTML = langData[key]; });
+            document.querySelectorAll('[data-translate-placeholder]').forEach(el => { const key = el.dataset.translatePlaceholder; if (langData && langData[key]) el.placeholder = langData[key]; });
+
+            if (lang === 'sq') {
+                langToggleBtn.innerHTML = `${albanianFlagSVG}<span class="font-bold">AL</span>`;
+                langOptionBtn.innerHTML = `${englishFlagSVG}<span class="font-bold">EN</span>`;
+                langOptionBtn.onclick = () => changeLanguage('en');
+            } else {
+                langToggleBtn.innerHTML = `${englishFlagSVG}<span class="font-bold">EN</span>`;
+                langOptionBtn.innerHTML = `${albanianFlagSVG}<span class="font-bold">AL</span>`;
+                langOptionBtn.onclick = () => changeLanguage('sq');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle'); const mobileMenu = document.getElementById('mobile-menu'); menuToggle.addEventListener('click', () => mobileMenu.classList.toggle('hidden')); document.querySelectorAll('#mobile-menu a').forEach(link => link.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+            const langToggleBtn = document.getElementById('language-toggle-btn'); const langOptions = document.getElementById('language-options');
+            const socialToggleBtn = document.getElementById('social-toggle'); const socialOptions = document.getElementById('social-options');
+            
+            langToggleBtn.addEventListener('click', e => { e.stopPropagation(); langOptions.classList.toggle('hidden'); socialOptions.classList.add('hidden'); });
+            socialToggleBtn.addEventListener('click', e => { e.stopPropagation(); socialOptions.classList.toggle('hidden'); langOptions.classList.add('hidden'); });
+            window.addEventListener('click', () => { langOptions.classList.add('hidden'); socialOptions.classList.add('hidden'); });
+
+            function initSlider(sliderId) {
+                const slider = document.getElementById(sliderId); if (!slider) return;
+                const container = slider.parentElement; const afterImage = container.querySelector('.after-image-wrapper'); let isDragging = false;
+                
+                const startDrag = e => { isDragging = true; e.preventDefault(); };
+                const stopDrag = () => isDragging = false;
+                const onDrag = e => { if (!isDragging) return; const rect = container.getBoundingClientRect(); let x = (e.clientX || e.touches[0].clientX) - rect.left; if (x < 0) x = 0; if (x > rect.width) x = rect.width; let percent = (x / rect.width) * 100; slider.style.left = `${percent}%`; afterImage.style.clipPath = `inset(0 0 0 ${percent}%)`; };
+                
+                slider.addEventListener('mousedown', startDrag); slider.addEventListener('touchstart', startDrag);
+                window.addEventListener('mouseup', stopDrag); window.addEventListener('touchend', stopDrag);
+                window.addEventListener('mousemove', onDrag); window.addEventListener('touchmove', onDrag);
+            }
+            initSlider('slider1'); initSlider('slider2');
+            changeLanguage('sq'); // Set initial language
+        });
+    </script>
+</body>
+</html>
